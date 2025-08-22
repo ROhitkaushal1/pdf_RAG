@@ -88,6 +88,11 @@ if prompt := st.chat_input("Ask a question:"):
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": ans})
 
+if __name__ == "__main__":
+    st.set_page_config(page_title="LLM Chatbot", page_icon=":robot:")
+    st.title("LLM Chatbot")
+    st.write("Ask me anything about the legal documents!")
+
 
 
 # if prompt := st.chat_input("What is up?"):
