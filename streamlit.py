@@ -1,4 +1,4 @@
-from llama_index.llms.openai import OpenAI
+from llama_index.llms.openai.base import OpenAI
 from llama_index.core import (
     load_index_from_storage,
     StorageContext,
