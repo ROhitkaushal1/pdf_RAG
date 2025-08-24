@@ -12,7 +12,6 @@ import streamlit as st
 load_dotenv()
 
 
-
 # load index from disk
 vector_store = FaissVectorStore.from_persist_dir("./storage_1")
 storage_context = StorageContext.from_defaults(
@@ -55,6 +54,10 @@ def question_answer(question):
 
     
 #streamlit ui
+
+st.set_page_config(page_title="LLM Chatbot", page_icon=":robot:")
+st.title("LLM Chatbot")
+st.write("Ask me anything about the legal documents!")
 def stream_data(x):
         for word in x.split(" "):
             yield word + " "
@@ -88,10 +91,7 @@ if prompt := st.chat_input("Ask a question:"):
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": ans})
 
-if __name__ == "__main__":
-    st.set_page_config(page_title="LLM Chatbot", page_icon=":robot:")
-    st.title("LLM Chatbot")
-    st.write("Ask me anything about the legal documents!")
+    
 
 
 
